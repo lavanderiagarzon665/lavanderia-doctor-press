@@ -1,643 +1,1618 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lavandería & Tintorería Doctor Press — Jesús María, Lima</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavandería & Tintorería Doctor Press — Jesús María, Lima</title>
 
-<style>
-:root {
-  --white:   #ffffff;
-  --snow:    #f5f8ff;
-  --blue-bg: #eef3fc;
-  --navy:    #0f2154;
-  --navy2:   #1a3270;
-  --blue:    #1d4ed8;
-  --blue2:   #2563eb;
-  --blue-lt: #dbeafe;
-  --red:     #991b1b;
-  --text:    #0f172a;
-  --muted:   #64748b;
-  --border:  #e2e8f0;
-  --border2: #cbd5e1;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:Arial,sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
-::-webkit-scrollbar{width:4px;}
-::-webkit-scrollbar-track{background:var(--snow);}
-::-webkit-scrollbar-thumb{background:var(--navy);border-radius:2px;}
+  <style>
+    :root {
+      --white: #ffffff;
+      --snow: #f5f8ff;
+      --blue-bg: #eef3fc;
+      --navy: #0f2154;
+      --navy2: #1a3270;
+      --blue: #1d4ed8;
+      --blue2: #2563eb;
+      --blue-lt: #dbeafe;
+      --red: #991b1b;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --border2: #cbd5e1;
+    }
 
-/* ── NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  height:76px;padding:0 64px;
-  display:flex;justify-content:space-between;align-items:center;
-  background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  transition:box-shadow 0.3s;
-}
-nav.scrolled{box-shadow:0 2px 20px rgba(15,33,84,0.08);}
-.nav-logo img{height:60px;object-fit:contain;max-width:340px;mix-blend-mode:multiply;}
-.nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
-.nav-links a{
-  text-decoration:none;color:var(--muted);
-  font-size:0.78rem;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;
-  transition:color 0.2s;position:relative;
-}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:2px;background:var(--blue);transform:scaleX(0);transition:transform 0.3s;}
-.nav-links a:hover{color:var(--navy);}
-.nav-links a:hover::after{transform:scaleX(1);}
-.nav-wa{background:var(--navy)!important;color:white!important;padding:9px 22px;border-radius:4px;letter-spacing:1px!important;transition:background 0.2s!important;}
-.nav-wa::after{display:none!important;}
-.nav-wa:hover{background:var(--blue)!important;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ── HERO */
-.hero{
-  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
-  padding-top:76px;overflow:hidden;
-}
-.hero-left{
-  display:flex;flex-direction:column;justify-content:center;
-  padding:80px 56px 80px 80px;background:var(--white);
-}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--blue-lt);color:var(--blue);
-  font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;
-  padding:7px 16px;border-radius:3px;margin-bottom:32px;width:fit-content;
-  animation:fadeUp 0.7s ease both;
-}
-.hero-tag::before{content:'';width:6px;height:6px;background:var(--blue);border-radius:50%;}
-.hero-title{
-  font-family:Arial,sans-serif;
-  font-size:clamp(2.8rem,5vw,4.6rem);
-  font-weight:700;line-height:1.02;letter-spacing:-2px;
-  color:var(--navy);margin-bottom:8px;
-  animation:fadeUp 0.7s 0.1s ease both;
-}
-.hero-title em{font-style:italic;color:var(--blue);}
-.hero-subtitle{
-  font-family:Arial,sans-serif;
-  font-size:1.3rem;font-style:italic;color:var(--muted);
-  margin-bottom:28px;animation:fadeUp 0.7s 0.2s ease both;
-}
-.hero-rule{width:48px;height:3px;background:var(--blue);border-radius:2px;margin-bottom:24px;animation:fadeUp 0.7s 0.25s ease both;}
-.hero-desc{
-  font-size:0.97rem;color:var(--muted);line-height:1.8;
-  max-width:460px;margin-bottom:44px;font-weight:300;
-  animation:fadeUp 0.7s 0.3s ease both;
-}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 0.7s 0.4s ease both;}
-.btn-navy{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--navy);color:white;
-  padding:15px 30px;border-radius:4px;
-  text-decoration:none;font-weight:600;font-size:0.86rem;letter-spacing:0.3px;
-  transition:all 0.25s;
-}
-.btn-navy:hover{background:var(--blue);transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,78,216,0.3);}
-.btn-outline{
-  display:inline-flex;align-items:center;gap:10px;
-  background:transparent;color:var(--navy);
-  padding:15px 30px;border-radius:4px;
-  text-decoration:none;font-weight:500;font-size:0.86rem;
-  border:2px solid var(--border2);transition:all 0.25s;
-}
-.btn-outline:hover{border-color:var(--navy);transform:translateY(-2px);}
-.hero-stats{
-  display:flex;gap:0;margin-top:56px;border-top:1px solid var(--border);padding-top:36px;
-  animation:fadeUp 0.7s 0.5s ease both;
-}
-.hstat{padding-right:40px;margin-right:40px;border-right:1px solid var(--border);}
-.hstat:last-child{border-right:none;margin:0;padding:0;}
-.hstat-n{font-family:Arial,sans-serif;font-size:2.2rem;font-weight:700;color:var(--navy);line-height:1;}
-.hstat-l{font-size:0.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Hero right */
-.hero-right{
-  background:var(--navy);
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  padding:80px 56px;position:relative;overflow:hidden;
-}
-.hero-right::before{
-  content:'';position:absolute;
-  top:-160px;right:-160px;width:420px;height:420px;
-  background:radial-gradient(circle,rgba(37,99,235,0.35) 0%,transparent 70%);
-}
-.hero-right::after{
-  content:'';position:absolute;
-  bottom:-100px;left:-100px;width:320px;height:320px;
-  background:radial-gradient(circle,rgba(29,78,216,0.2) 0%,transparent 70%);
-}
-.hero-logo-big{position:relative;z-index:1;width:260px;margin-bottom:40px;filter:brightness(0) invert(1);}
-.hero-features{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px;width:100%;max-width:320px;}
-.feat{
-  display:flex;align-items:center;gap:14px;
-  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);
-  border-radius:8px;padding:16px 18px;
-  transition:background 0.2s;
-}
-.feat:hover{background:rgba(255,255,255,0.12);}
-.feat-icon{font-size:1.3rem;flex-shrink:0;}
-.feat-text h4{font-size:0.88rem;font-weight:600;color:white;margin-bottom:2px;}
-.feat-text p{font-size:0.76rem;color:rgba(255,255,255,0.5);font-weight:300;}
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-/* ── SECTION BASE */
-.sec-label{font-size:0.65rem;color:var(--blue);letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
-.sec-h{font-family:Arial,sans-serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-1px;color:var(--navy);margin-bottom:12px;}
-.sec-h em{font-style:italic;color:var(--blue);}
-.sec-rule{width:40px;height:3px;background:var(--blue);border-radius:2px;margin-bottom:40px;}
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
 
-/* ── NOSOTROS */
-.about{background:var(--snow);padding:110px 80px;}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
-.about-since{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--blue-lt);color:var(--blue);
-  font-size:0.73rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;
-  padding:7px 14px;border-radius:3px;margin-bottom:24px;
-}
-.about-text p{color:var(--muted);font-size:0.95rem;line-height:1.85;font-weight:300;margin-bottom:16px;}
-.about-text p strong{color:var(--text);font-weight:600;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;}
-.pillar{
-  display:flex;align-items:center;gap:10px;
-  background:white;border:1px solid var(--border);
-  border-radius:6px;padding:13px 15px;
-  font-size:0.82rem;font-weight:500;color:var(--navy);
-  transition:border-color 0.2s,box-shadow 0.2s;
-}
-.pillar:hover{border-color:var(--blue);box-shadow:0 2px 12px rgba(29,78,216,0.08);}
-.pillar-dot{width:8px;height:8px;background:var(--blue);border-radius:50%;flex-shrink:0;}
-.spec-cards{display:flex;flex-direction:column;gap:16px;}
-.spec{
-  background:white;border:1px solid var(--border);border-radius:10px;
-  padding:28px;transition:all 0.3s;
-  border-left:3px solid transparent;
-}
-.spec:hover{border-left-color:var(--blue);box-shadow:0 8px 30px rgba(0,0,0,0.06);transform:translateX(4px);}
-.spec-icon{font-size:1.7rem;margin-bottom:12px;}
-.spec h4{font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
-.spec p{font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;}
+    ::-webkit-scrollbar-track {
+      background: var(--snow);
+    }
 
-/* ── SERVICES */
-.services{background:var(--white);padding:110px 80px;}
-.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.serv-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:10px;padding:36px 28px;
-  transition:all 0.3s;position:relative;overflow:hidden;
-}
-.serv-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--navy),var(--blue));
-  transform:scaleX(0);transform-origin:left;transition:transform 0.35s;
-}
-.serv-card:hover{box-shadow:0 12px 40px rgba(15,33,84,0.1);transform:translateY(-5px);border-color:transparent;}
-.serv-card:hover::before{transform:scaleX(1);}
-.serv-num{font-family:Arial,sans-serif;font-size:3rem;font-weight:700;color:#0f2154;line-height:1;margin-bottom:12px;opacity:1;}
-.serv-icon{font-size:1.9rem;margin-bottom:14px;display:block;}
-.serv-card h3{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:10px;}
-.serv-card p{font-size:0.82rem;color:var(--muted);line-height:1.7;font-weight:300;}
+    ::-webkit-scrollbar-thumb {
+      background: var(--navy);
+      border-radius: 2px;
+    }
 
-/* ── LOCATION */
-.location{background:var(--snow);padding:110px 80px;}
-.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-.loc-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:10px;padding:36px;transition:all 0.3s;
-}
-.loc-card:hover{box-shadow:0 8px 32px rgba(15,33,84,0.08);}
-.loc-icon{
-  width:50px;height:50px;background:var(--blue-lt);
-  border-radius:8px;display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;margin-bottom:22px;
-}
-.loc-card h3{font-family:Arial,sans-serif;font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:16px;}
-.loc-card p{color:var(--muted);font-size:0.9rem;line-height:1.75;font-weight:300;}
-.loc-card strong{color:var(--text);font-weight:600;}
-.map-link{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  margin-top:20px;padding:13px;border-radius:6px;
-  border:1.5px dashed var(--border2);
-  color:var(--muted);font-size:0.8rem;text-decoration:none;
-  transition:all 0.2s;
-}
-.map-link:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-lt);}
-.hours{margin-top:4px;}
-.hr{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border);font-size:0.85rem;}
-.hr:last-child{border-bottom:none;}
-.hr-day{color:var(--muted);}
-.hr-time{color:var(--navy);font-weight:500;}
-.badge-cl{background:#fee2e2;color:#dc2626;font-size:0.65rem;padding:3px 10px;border-radius:3px;letter-spacing:0.5px;font-weight:500;}
+    /* ── NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: 76px;
+      padding: 0 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
 
-/* ── TESTIMONIALS */
-.testimonials{background:var(--navy);padding:110px 80px;position:relative;overflow:hidden;}
-.testimonials::before{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,0.2) 0%,transparent 70%);pointer-events:none;}
-.testimonials .sec-label{color:#93c5fd;}
-.testimonials .sec-h{color:white;}
-.testimonials .sec-h em{color:#93c5fd;}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.testi{
-  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
-  border-radius:10px;padding:30px;transition:all 0.3s;
-}
-.testi:hover{background:rgba(255,255,255,0.09);border-color:rgba(255,255,255,0.18);}
-.testi-stars{color:#fbbf24;letter-spacing:2px;margin-bottom:14px;font-size:0.85rem;}
-.testi-txt{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.75;font-style:italic;font-weight:300;margin-bottom:22px;}
-.testi-auth{display:flex;align-items:center;gap:12px;}
-.testi-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy2));display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;font-size:1.1rem;font-weight:700;color:white;}
-.testi-name{font-size:0.85rem;font-weight:600;color:white;}
-.testi-role{font-size:0.72rem;color:rgba(255,255,255,0.4);}
+    nav.scrolled {
+      box-shadow: 0 2px 20px rgba(15, 33, 84, 0.08);
+    }
 
-/* ── CTA */
-.cta{background:var(--white);padding:110px 80px;text-align:center;border-top:1px solid var(--border);}
-.cta .sec-h{max-width:640px;margin:0 auto 12px;}
-.cta .sec-rule{margin:0 auto 32px;}
-.cta-sub{color:var(--muted);font-size:1rem;line-height:1.7;font-weight:300;max-width:500px;margin:0 auto 48px;}
-.cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
-.btn-wa{
-  display:inline-flex;align-items:center;gap:12px;
-  background:#25d366;color:white;
-  padding:16px 34px;border-radius:4px;
-  text-decoration:none;font-weight:600;font-size:0.88rem;
-  transition:all 0.25s;
-}
-.btn-wa:hover{background:#1ebe5a;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,0.3);}
+    .nav-logo img {
+      height: 60px;
+      object-fit: contain;
+      max-width: 340px;
+      mix-blend-mode: multiply;
+    }
 
-/* ── FOOTER */
-footer{
-  background:var(--navy);padding:48px 80px;
-  display:grid;grid-template-columns:1fr auto 1fr;gap:32px;align-items:center;
-}
-.foot-logo img{height:44px;opacity:0.9;}
-.foot-center{text-align:center;}
-.foot-center p{color:rgba(255,255,255,0.35);font-size:0.72rem;line-height:1.7;}
-.foot-links{display:flex;justify-content:flex-end;gap:22px;}
-.foot-links a{color:rgba(255,255,255,0.4);font-size:0.76rem;text-decoration:none;transition:color 0.2s;letter-spacing:0.5px;text-transform:uppercase;}
-.foot-links a:hover{color:white;}
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
 
-/* ── FLOATING WA */
-.wa-float{
-  position:fixed;bottom:32px;right:32px;z-index:300;
-  width:56px;height:56px;border-radius:50%;
-  background:#25d366;display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;text-decoration:none;
-  box-shadow:0 4px 20px rgba(37,211,102,0.4);
-  transition:all 0.25s;
-  animation:pulse-wa 2.5s ease-in-out infinite;
-}
-.wa-float:hover{transform:scale(1.1);}
-@keyframes pulse-wa{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}50%{box-shadow:0 4px 32px rgba(37,211,102,0.7),0 0 0 8px rgba(37,211,102,0.1);}}
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
 
-/* ── ANIM */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
 
-.btn-google-reviews{
-  display:inline-flex;align-items:center;gap:10px;
-  background:white;color:var(--navy);
-  padding:14px 28px;border-radius:4px;
-  text-decoration:none;font-weight:600;font-size:0.86rem;
-  border:2px solid var(--border2);
-  transition:all 0.25s;
-}
-.btn-google-reviews:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 4px 16px rgba(29,78,216,0.12);transform:translateY(-2px);}
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-wa {
+      background: var(--navy) !important;
+      color: white !important;
+      padding: 9px 22px;
+      border-radius: 4px;
+      letter-spacing: 1px !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-wa::after {
+      display: none !important;
+    }
+
+    .nav-wa:hover {
+      background: var(--blue) !important;
+    }
+
+    /* ── HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 76px;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 56px 80px 80px;
+      background: var(--white);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-lt);
+      color: var(--blue);
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 3px;
+      margin-bottom: 32px;
+      width: fit-content;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.6rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -2px;
+      color: var(--navy);
+      margin-bottom: 8px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .hero-subtitle {
+      font-family: Arial, sans-serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 28px;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .hero-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--blue);
+      border-radius: 2px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.7s 0.25s ease both;
+    }
+
+    .hero-desc {
+      font-size: 0.97rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 460px;
+      margin-bottom: 44px;
+      font-weight: 300;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+
+    .btn-navy {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.86rem;
+      letter-spacing: 0.3px;
+      transition: all 0.25s;
+    }
+
+    .btn-navy:hover {
+      background: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(29, 78, 216, 0.3);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--navy);
+      padding: 15px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.86rem;
+      border: 2px solid var(--border2);
+      transition: all 0.25s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 56px;
+      border-top: 1px solid var(--border);
+      padding-top: 36px;
+      animation: fadeUp 0.7s 0.5s ease both;
+    }
+
+    .hstat {
+      padding-right: 40px;
+      margin-right: 40px;
+      border-right: 1px solid var(--border);
+    }
+
+    .hstat:last-child {
+      border-right: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hstat-n {
+      font-family: Arial, sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .hstat-l {
+      font-size: 0.67rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 4px;
+    }
+
+    /* Hero right */
+    .hero-right {
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: -160px;
+      right: -160px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, transparent 70%);
+    }
+
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.2) 0%, transparent 70%);
+    }
+
+    .hero-logo-big {
+      position: relative;
+      z-index: 1;
+      width: 260px;
+      margin-bottom: 40px;
+      filter: brightness(0) invert(1);
+    }
+
+    .hero-features {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .feat {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 16px 18px;
+      transition: background 0.2s;
+    }
+
+    .feat:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .feat-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .feat-text h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 2px;
+    }
+
+    .feat-text p {
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 300;
+    }
+
+    /* ── SECTION BASE */
+    .sec-label {
+      font-size: 0.65rem;
+      color: var(--blue);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .sec-h {
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .sec-h em {
+      font-style: italic;
+      color: var(--blue);
+    }
+
+    .sec-rule {
+      width: 40px;
+      height: 3px;
+      background: var(--blue);
+      border-radius: 2px;
+      margin-bottom: 40px;
+    }
+
+    /* ── NOSOTROS */
+    .about {
+      background: var(--snow);
+      padding: 110px 80px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .about-since {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-lt);
+      color: var(--blue);
+      font-size: 0.73rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 3px;
+      margin-bottom: 24px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 13px 15px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--navy);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .pillar:hover {
+      border-color: var(--blue);
+      box-shadow: 0 2px 12px rgba(29, 78, 216, 0.08);
+    }
+
+    .pillar-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .spec-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .spec {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+      transition: all 0.3s;
+      border-left: 3px solid transparent;
+    }
+
+    .spec:hover {
+      border-left-color: var(--blue);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      transform: translateX(4px);
+    }
+
+    .spec-icon {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+    }
+
+    .spec h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .spec p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── SERVICES */
+    .services {
+      background: var(--white);
+      padding: 110px 80px;
+    }
+
+    .serv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .serv-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 36px 28px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .serv-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s;
+    }
+
+    .serv-card:hover {
+      box-shadow: 0 12px 40px rgba(15, 33, 84, 0.1);
+      transform: translateY(-5px);
+      border-color: transparent;
+    }
+
+    .serv-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .serv-num {
+      font-family: Arial, sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #0f2154;
+      line-height: 1;
+      margin-bottom: 12px;
+      opacity: 1;
+    }
+
+    .serv-icon {
+      font-size: 1.9rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .serv-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .serv-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── LOCATION */
+    .location {
+      background: var(--snow);
+      padding: 110px 80px;
+    }
+
+    .loc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .loc-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 36px;
+      transition: all 0.3s;
+    }
+
+    .loc-card:hover {
+      box-shadow: 0 8px 32px rgba(15, 33, 84, 0.08);
+    }
+
+    .loc-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--blue-lt);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 22px;
+    }
+
+    .loc-card h3 {
+      font-family: Arial, sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .loc-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .loc-card strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .map-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 13px;
+      border-radius: 6px;
+      border: 1.5px dashed var(--border2);
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .map-link:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-lt);
+    }
+
+    .hours {
+      margin-top: 4px;
+    }
+
+    .hr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .hr:last-child {
+      border-bottom: none;
+    }
+
+    .hr-day {
+      color: var(--muted);
+    }
+
+    .hr-time {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .badge-cl {
+      background: #fee2e2;
+      color: #dc2626;
+      font-size: 0.65rem;
+      padding: 3px 10px;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    /* ── TESTIMONIALS */
+    .testimonials {
+      background: var(--navy);
+      padding: 110px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .testimonials .sec-label {
+      color: #93c5fd;
+    }
+
+    .testimonials .sec-h {
+      color: white;
+    }
+
+    .testimonials .sec-h em {
+      color: #93c5fd;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .testi {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 30px;
+      transition: all 0.3s;
+    }
+
+    .testi:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .testi-stars {
+      color: #fbbf24;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+      font-size: 0.85rem;
+    }
+
+    .testi-txt {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.75;
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: 22px;
+    }
+
+    .testi-auth {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testi-av {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--navy2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .testi-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .testi-role {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ── CTA */
+    .cta {
+      background: var(--white);
+      padding: 110px 80px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .cta .sec-h {
+      max-width: 640px;
+      margin: 0 auto 12px;
+    }
+
+    .cta .sec-rule {
+      margin: 0 auto 32px;
+    }
+
+    .cta-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto 48px;
+    }
+
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #25d366;
+      color: white;
+      padding: 16px 34px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: all 0.25s;
+    }
+
+    .btn-wa:hover {
+      background: #1ebe5a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.3);
+    }
+
+    /* ── FOOTER */
+    footer {
+      background: var(--navy);
+      padding: 48px 80px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .foot-logo img {
+      height: 44px;
+      opacity: 0.9;
+    }
+
+    .foot-center {
+      text-align: center;
+    }
+
+    .foot-center p {
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 0.72rem;
+      line-height: 1.7;
+    }
+
+    .foot-links {
+      display: flex;
+      justify-content: flex-end;
+      gap: 22px;
+    }
+
+    .foot-links a {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.76rem;
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .foot-links a:hover {
+      color: white;
+    }
+
+    /* ── FLOATING WA */
+    .wa-float {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 300;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.25s;
+      animation: pulse-wa 2.5s ease-in-out infinite;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse-wa {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 4px 32px rgba(37, 211, 102, 0.7), 0 0 0 8px rgba(37, 211, 102, 0.1);
+      }
+    }
+
+    /* ── ANIM */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn-google-reviews {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: var(--navy);
+      padding: 14px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.86rem;
+      border: 2px solid var(--border2);
+      transition: all 0.25s;
+    }
+
+    .btn-google-reviews:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      box-shadow: 0 4px 16px rgba(29, 78, 216, 0.12);
+      transform: translateY(-2px);
+    }
 
 
-/* ── TIKTOK */
-.tiktok-sec{background:var(--snow);padding:110px 80px;}
-.tiktok-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.tiktok-card{
-  background:var(--white);border:1px solid var(--border);border-radius:10px;
-  overflow:hidden;text-decoration:none;color:inherit;
-  transition:all 0.3s;display:flex;flex-direction:column;
-}
-.tiktok-card:hover{box-shadow:0 12px 36px rgba(15,33,84,0.1);transform:translateY(-5px);border-color:var(--blue);}
-.tk-thumb{
-  background:linear-gradient(135deg,var(--navy) 0%,var(--blue2) 100%);
-  height:130px;display:flex;align-items:center;justify-content:center;
-  position:relative;
-}
-.tk-play{
-  position:absolute;
-  width:44px;height:44px;border-radius:50%;
-  background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.6);
-  display:flex;align-items:center;justify-content:center;
-  color:white;font-size:1rem;padding-left:4px;
-  transition:all 0.2s;
-}
-.tiktok-card:hover .tk-play{background:rgba(255,255,255,0.35);transform:scale(1.1);}
-.tk-icon{position:absolute;bottom:10px;right:12px;font-size:1.2rem;opacity:0.5;}
-.tk-info{padding:20px;flex:1;display:flex;flex-direction:column;}
-.tk-num{font-family:Arial,sans-serif;font-size:2rem;font-weight:700;color:#0f2154;line-height:1;margin-bottom:8px;opacity:1;}
-.tk-info h4{font-size:0.88rem;font-weight:600;color:var(--navy);margin-bottom:8px;line-height:1.4;}
-.tk-info p{font-size:0.78rem;color:var(--muted);line-height:1.6;font-weight:300;flex:1;}
-.tk-link{font-size:0.75rem;font-weight:600;color:var(--blue);margin-top:14px;display:inline-block;letter-spacing:0.3px;}
-.tiktok-follow{
-  background:var(--navy);border-color:var(--navy);
-  align-items:center;justify-content:center;
-}
-.tiktok-follow:hover{background:var(--navy2);}
-.tk-follow-inner{padding:28px;text-align:center;}
-.tiktok-follow h4{color:white;font-size:0.95rem;margin-bottom:10px;}
-.tiktok-follow p{color:rgba(255,255,255,0.55);font-size:0.8rem;line-height:1.6;font-weight:300;}
-.tiktok-follow .tk-link{color:#93c5fd;}
+    /* ── TIKTOK */
+    .tiktok-sec {
+      background: var(--snow);
+      padding: 110px 80px;
+    }
 
-@media(max-width:1024px){
-  .tiktok-sec{padding:72px 24px;}
-  .tiktok-grid{grid-template-columns:repeat(2,1fr);}
-}
-@media(max-width:600px){
-  .tiktok-grid{grid-template-columns:1fr;}
-}
+    .tiktok-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
 
-/* ── MOBILE */
-@media(max-width:1024px){
-  nav{padding:0 24px;}
-  .nav-links{display:none;}
-  .hero{grid-template-columns:1fr;}
-  .hero-left{padding:60px 24px 48px;}
-  .hero-right{padding:48px 24px 60px;}
-  .about,.services,.location,.testimonials,.cta{padding:72px 24px;}
-  .about-grid,.loc-grid{grid-template-columns:1fr;}
-  .serv-grid,.testi-grid{grid-template-columns:1fr;}
-  .pillars{grid-template-columns:1fr;}
-  footer{grid-template-columns:1fr;text-align:center;padding:32px 24px;}
-  .foot-links{justify-content:center;}
-  .foot-logo{display:flex;justify-content:center;}
-}
-</style>
+    .tiktok-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tiktok-card:hover {
+      box-shadow: 0 12px 36px rgba(15, 33, 84, 0.1);
+      transform: translateY(-5px);
+      border-color: var(--blue);
+    }
+
+    .tk-thumb {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue2) 100%);
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .tk-play {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      padding-left: 4px;
+      transition: all 0.2s;
+    }
+
+    .tiktok-card:hover .tk-play {
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(1.1);
+    }
+
+    .tk-icon {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+
+    .tk-info {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tk-num {
+      font-family: Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0f2154;
+      line-height: 1;
+      margin-bottom: 8px;
+      opacity: 1;
+    }
+
+    .tk-info h4 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .tk-info p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+      flex: 1;
+    }
+
+    .tk-link {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-top: 14px;
+      display: inline-block;
+      letter-spacing: 0.3px;
+    }
+
+    .tiktok-follow {
+      background: var(--navy);
+      border-color: var(--navy);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tiktok-follow:hover {
+      background: var(--navy2);
+    }
+
+    .tk-follow-inner {
+      padding: 28px;
+      text-align: center;
+    }
+
+    .tiktok-follow h4 {
+      color: white;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .tiktok-follow p {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.8rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .tiktok-follow .tk-link {
+      color: #93c5fd;
+    }
+
+    @media(max-width:1024px) {
+      .tiktok-sec {
+        padding: 72px 24px;
+      }
+
+      .tiktok-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:600px) {
+      .tiktok-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── MOBILE */
+    @media(max-width:1024px) {
+      nav {
+        padding: 0 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left {
+        padding: 60px 24px 48px;
+      }
+
+      .hero-right {
+        padding: 48px 24px 60px;
+      }
+
+      .about,
+      .services,
+      .location,
+      .testimonials,
+      .cta {
+        padding: 72px 24px;
+      }
+
+      .about-grid,
+      .loc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .serv-grid,
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 32px 24px;
+      }
+
+      .foot-links {
+        justify-content: center;
+      }
+
+      .foot-logo {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<a href="https://wa.me/51902208160" class="wa-float" target="_blank">💬</a>
+  <a href="https://wa.me/51902208160" class="wa-float" target="_blank">💬</a>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo"><img src="imagenes/imagen_01.jpg" alt="Lavandería & Tintorería Doctor Press" style="height:58px;width:58px;object-fit:cover;border-radius:50%;border:2px solid var(--border);"></div>
-  <ul class="nav-links">
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#ubicacion">Ubicación</a></li>
-    <li><a href="#testimonios">Testimonios</a></li>
-    <li><a href="#videos">Videos</a></li>
-    <li><a href="https://wa.me/51902208160" class="nav-wa" target="_blank">WhatsApp</a></li>
-  </ul>
-</nav>
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo"><img src="imagenes/imagen_01.jpg" alt="Lavandería & Tintorería Doctor Press"
+        style="height:58px;width:58px;object-fit:cover;border-radius:50%;border:2px solid var(--border);"></div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="https://wa.me/51902208160" class="nav-wa" target="_blank">WhatsApp</a></li>
+    </ul>
+  </nav>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="hero-left" style="align-items:center;text-align:center;background:url('imagenes/imagen_02.png') center center / cover no-repeat;position:relative;">
-    <div style="position:absolute;inset:0;background:rgba(255,255,255,0.55);pointer-events:none;"></div>
-    <div style="position:absolute;inset:0;opacity:0.04;background-image:radial-gradient(#1d4ed8 1px,transparent 1px);background-size:24px 24px;pointer-events:none;"></div>
-    <div style="position:relative;z-index:1;width:100%;display:flex;flex-direction:column;align-items:center;">
-      <img src="imagenes/imagen_03.png" alt="Doctor Press" style="width:100%;max-width:520px;margin-bottom:24px;background:white;padding:12px 16px;border-radius:14px;">
-      <p style="font-size:1.6rem;font-weight:700;color:#100d0d;letter-spacing:-0.5px;margin-bottom:10px;"><span style="color:#0f2154;font-size:1.2rem;">◆</span> ¡Dr. Press lo hace así! <span style="color:#0f2154;font-size:1.2rem;">◆</span></p>
-      <div style="width:60px;height:3px;background:var(--navy);border-radius:2px;margin-bottom:24px;"></div>
-      <p style="font-size:0.9rem;color:#374151;line-height:1.7;max-width:400px;margin-bottom:36px;font-weight:700;">Especialistas en el tratamiento técnico de prendas desde 2019.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
-        <a href="https://wa.me/51902208160" class="btn-navy" target="_blank">💬 Escribir por WhatsApp</a>
-        <a href="#servicios" class="btn-outline">Ver servicios →</a>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-left"
+      style="align-items:center;text-align:center;background:url('imagenes/imagen_02.png') center center / cover no-repeat;position:relative;">
+      <div style="position:absolute;inset:0;background:rgba(255,255,255,0.55);pointer-events:none;"></div>
+      <div
+        style="position:absolute;inset:0;opacity:0.04;background-image:radial-gradient(#1d4ed8 1px,transparent 1px);background-size:24px 24px;pointer-events:none;">
       </div>
+      <div style="position:relative;z-index:1;width:100%;display:flex;flex-direction:column;align-items:center;">
+        <img src="imagenes/imagen_03.png" alt="Doctor Press"
+          style="width:100%;max-width:520px;margin-bottom:24px;background:white;padding:12px 16px;border-radius:14px;">
+        <p style="font-size:1.6rem;font-weight:700;color:#100d0d;letter-spacing:-0.5px;margin-bottom:10px;"><span
+            style="color:#0f2154;font-size:1.2rem;">◆</span> ¡Dr. Press lo hace así! <span
+            style="color:#0f2154;font-size:1.2rem;">◆</span></p>
+        <div style="width:60px;height:3px;background:var(--navy);border-radius:2px;margin-bottom:24px;"></div>
+        <p style="font-size:0.9rem;color:#374151;line-height:1.7;max-width:400px;margin-bottom:36px;font-weight:700;">
+          Especialistas en el tratamiento técnico de prendas desde 2019.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+          <a href="https://wa.me/51902208160" class="btn-navy" target="_blank">💬 Escribir por WhatsApp</a>
+          <a href="#servicios" class="btn-outline">Ver servicios →</a>
+        </div>
+
+      </div>
+      <div style="position:absolute;bottom:0;left:0;right:0;height:8px;background:var(--navy);"></div>
+    </div>
+    <div class="hero-right"
+      style="display:flex;flex-direction:column;justify-content:center;gap:16px;padding:60px 48px;">
+      <div class="feat"><span class="feat-icon">✅</span>
+        <div class="feat-text">
+          <h4>Ropa lista a tiempo</h4>
+          <p>Puntualidad garantizada en cada pedido</p>
+        </div>
+      </div>
+      <div class="feat"><span class="feat-icon">🔬</span>
+        <div class="feat-text">
+          <h4>Tratamiento técnico</h4>
+          <p>Procesos especializados por tipo de prenda</p>
+        </div>
+      </div>
+      <div class="feat"><span class="feat-icon">✨</span>
+        <div class="feat-text">
+          <h4>Acabado impecable</h4>
+          <p>Resultados de calidad profesional</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="about" id="nosotros">
+    <div class="about-grid">
+      <div class="about-left">
+        <p class="sec-label">Quiénes somos</p>
+        <h2 class="sec-h">Más que una lavandería.<br><em>Somos especialistas.</em></h2>
+        <div class="sec-rule"></div>
+        <div class="about-since">📅 Fundados en marzo de 2019</div>
+        <div class="about-text">
+          <p>En <strong style="color:#4b5563;">Dr. Press</strong>, abrimos nuestras puertas con una visión clara: elevar
+            el estándar del cuidado profesional de prendas.</p>
+          <p>No somos una lavandería tradicional. Somos <strong style="color:#4b5563;">especialistas en el tratamiento
+              técnico de textiles</strong>. Con formación constante en limpieza, desmanchado y planchado profesional,
+            hemos convertido cada prenda en una responsabilidad y cada servicio en una garantía de calidad.</p>
+          <p>En Dr. Press entendemos que <strong style="color:#4b5563;">una prenda no es solo tela</strong>. Es imagen,
+            inversión y muchas veces emoción.</p>
+        </div>
+        <div class="pillars">
+          <div class="pillar"><span class="pillar-dot"></span> Precisión en cada proceso</div>
+          <div class="pillar"><span class="pillar-dot"></span> Transparencia con el cliente</div>
+          <div class="pillar"><span class="pillar-dot"></span> Innovación constante</div>
+          <div class="pillar"><span class="pillar-dot"></span> Respeto por cada prenda</div>
+        </div>
+      </div>
+      <div class="spec-cards">
+        <div style="border-radius:10px;overflow:hidden;margin-bottom:16px;border:1px solid var(--border);height:220px;">
+          <img src="imagenes/imagen_04.jpg" alt="Interior Doctor Press"
+            style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="spec">
+          <div class="spec-icon">🔬</div>
+          <h4>Desmanchado Técnico</h4>
+          <p>Evaluamos cada mancha según su origen, tipo de fibra y fijación del color. Procesos específicos que
+            protegen la estructura del tejido.</p>
+        </div>
+        <div class="spec">
+          <div class="spec-icon">♨️</div>
+          <h4>Planchado Profesional</h4>
+          <p>Equipos con vapor y sistemas de aspirado. Sin brillos, sin marcas. Acabados impecables en cada prenda.</p>
+        </div>
+        <div class="spec">
+          <div class="spec-icon">🧵</div>
+          <h4>Prendas Delicadas</h4>
+          <p>Tratamos seda, lana, lino y otras fibras con criterio técnico, respetando colores y estructuras textiles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="services" id="servicios">
+    <p class="sec-label">Lo que hacemos</p>
+    <h2 class="sec-h">Nuestros <em>Servicios</em></h2>
+    <div class="sec-rule"></div>
+    <div class="serv-grid">
+      <div class="serv-card">
+        <div class="serv-num">01</div><img src="imagenes/imagen_05.png"
+          style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;">
+        <h3>Lavado & Secado</h3>
+        <p>Lavado profesional de prendas cotidianas con productos de alta calidad, cuidando colores y tejidos.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-num">02</div><img src="imagenes/imagen_06.png"
+          style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;">
+        <h3>Tintorería</h3>
+        <p>Limpieza en seco para sacos, abrigos, vestidos de gala y prendas que requieren tratamiento especializado.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-num">03</div><img src="imagenes/imagen_07.png"
+          style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;">
+        <h3>Planchado Profesional</h3>
+        <p>Acabado impecable con vapor industrial. Sin brillos, sin marcas. Precisión de especialista.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-num">04</div><img src="imagenes/imagen_08.png"
+          style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;">
+        <h3>Desmanchado Técnico</h3>
+        <p>Identificamos y tratamos cada mancha con el proceso adecuado según su origen y tipo de tejido.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-num">05</div><img src="imagenes/imagen_09.png"
+          style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;">
+        <h3>Prendas Delicadas</h3>
+        <p>Cuidado especial para seda, lana, lino y fibras que requieren tratamiento particular y experto.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-num">06</div><img src="imagenes/imagen_10.png"
+          style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;">
+        <h3>Ropa de Cama & Hogar</h3>
+        <p>Lavado de sábanas, edredones, mantas y cortinas con tratamiento adecuado a cada tipo de tela.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- UBICACIÓN -->
+  <section class="location" id="ubicacion">
+    <p class="sec-label">Encuéntranos</p>
+    <h2 class="sec-h">Ubicación y <em>Horarios</em></h2>
+    <div class="sec-rule"></div>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <div class="loc-icon">📍</div>
+        <h3>Dirección</h3>
+        <p><strong>Av. General Eugenio Garzón 665</strong><br>Jesús María, Lima, Perú<br><br>De fácil acceso en
+          transporte público o privado, en el corazón del distrito.</p>
+        <div style="margin-top:20px;border-radius:10px;overflow:hidden;border:1px solid var(--border);height:220px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d487.8!2d-77.05652!3d-12.07582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c92b2f3b5555%3A0xabc123!2sAv.+General+Eugenio+Garz%C3%B3n+665%2C+Jes%C3%BAs+Mar%C3%ADa%2C+Lima!5e0!3m2!1ses-419!2spe!4v1700000000000!5m2!1ses-419!2spe"
+            width="100%" height="220" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <a href="https://maps.app.goo.gl/2aJBZpUVQKBz9PEu6" class="map-link" target="_blank"
+          style="margin-top:12px;">🗺️ Abrir en Google Maps</a>
+      </div>
+      <div class="loc-card">
+        <div class="loc-icon">🕐</div>
+        <h3>Horario de Atención</h3>
+        <div class="hours">
+          <div class="hr"><span class="hr-day">Lunes – Sábado</span><span class="hr-time">9:00 am – 12:30 pm / 2:00 pm –
+              8:00 pm</span></div>
+          <div class="hr"><span class="hr-day">Domingo / Feriados</span><span class="badge-cl">CERRADO</span></div>
+        </div>
+        <p style="margin-top:18px;font-size:0.78rem;color:var(--muted);">¿Necesidad urgente? Escríbenos por WhatsApp y
+          coordinamos.</p>
+        <a href="https://wa.me/51902208160" class="map-link" style="margin-top:14px;" target="_blank">💬 902 208 160</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonials" id="testimonios">
+    <p class="sec-label">Lo que dicen</p>
+    <h2 class="sec-h">Testimonios de <em>nuestros clientes</em></h2>
+    <div class="sec-rule" style="margin-bottom:48px;"></div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">"Excelente servicio, 100% recomendando para ropa delicada y para quitar manchas difíciles.
+          Todo muy profesional, rápido y a un precio justo."</p>
+        <div class="testi-auth">
+          <div class="testi-av">L</div>
+          <div>
+            <div class="testi-name">Luis Joaquín Zapata Elías</div>
+            <div class="testi-role">Reseña en Google ⭐</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">"Excelente servicio y atención. Fui porque pensé que algunas prendas ya no tenían solución
+          y me las entregaron como nuevas. ¡Súper recomendado! 🙌"</p>
+        <div class="testi-auth">
+          <div class="testi-av">C</div>
+          <div>
+            <div class="testi-name">Cecilia Montellanos</div>
+            <div class="testi-role">Reseña en Google ⭐</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">"Excelente servicio, quedé conforme con las prendas que dejé. Muchas gracias, ¡sigan así!"
+        </p>
+        <div class="testi-auth">
+          <div class="testi-av">J</div>
+          <div>
+            <div class="testi-name">Jorge Antonio Barriga Palomino</div>
+            <div class="testi-role">Reseña en Google ⭐</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="https://maps.app.goo.gl/2aJBZpUVQKBz9PEu6" target="_blank" class="btn-google-reviews">
+        <img src="https://www.google.com/favicon.ico" style="width:18px;height:18px;"> Ver todas las reseñas en Google
+      </a>
+    </div>
+  </section>
+
+  <!-- TIKTOK -->
+  <section class="tiktok-sec" id="videos">
+    <p class="sec-label">Síguenos en TikTok</p>
+    <h2 class="sec-h">Nuestro trabajo <em>en video</em></h2>
+    <div class="sec-rule"></div>
+    <p style="color:var(--muted);font-size:0.95rem;max-width:560px;margin-bottom:48px;font-weight:300;line-height:1.7;">
+      Mirá de cerca los procesos técnicos que hacemos a diario. Cada video muestra el cuidado y la precisión con que
+      tratamos cada prenda.</p>
+    <div class="tiktok-grid">
+      <a href="https://vt.tiktok.com/ZSmPkhk7g/" class="tiktok-card" target="_blank">
+        <div class="tk-thumb">
+          <div class="tk-play">▶</div>
+          <div class="tk-icon">📱</div>
+        </div>
+        <div class="tk-info">
+          <div class="tk-num">01</div>
+          <h4>Lavandería Dr. Press | Jesus Maria</h4>
+          <p>Expertos en lavandería y tintorería. ¡Cuidamos tus prendas con la mejor tecnología en Jesús María!</p>
+          <span class="tk-link">Ver en TikTok →</span>
+        </div>
+      </a>
+      <a href="https://vt.tiktok.com/ZSmDSwjtq/" class="tiktok-card" target="_blank">
+        <div class="tk-thumb">
+          <div class="tk-play">▶</div>
+          <div class="tk-icon">📱</div>
+        </div>
+        <div class="tk-info">
+          <div class="tk-num">02</div>
+          <h4>Planchado de polo camisero</h4>
+          <p>Técnica profesional para lograr un acabado impecable sin marcas ni brillos.</p>
+          <span class="tk-link">Ver en TikTok →</span>
+        </div>
+      </a>
+      <a href="https://vt.tiktok.com/ZSmDSnCFJ/" class="tiktok-card" target="_blank">
+        <div class="tk-thumb">
+          <div class="tk-play">▶</div>
+          <div class="tk-icon">📱</div>
+        </div>
+        <div class="tk-info">
+          <div class="tk-num">03</div>
+          <h4>Recuperación de saco con hongos y humedad</h4>
+          <p>Tratamiento especializado para prendas guardadas con daño por humedad.</p>
+          <span class="tk-link">Ver en TikTok →</span>
+        </div>
+      </a>
+      <a href="https://vt.tiktok.com/ZSmDArka7/" class="tiktok-card" target="_blank">
+        <div class="tk-thumb">
+          <div class="tk-play">▶</div>
+          <div class="tk-icon">📱</div>
+        </div>
+        <div class="tk-info">
+          <div class="tk-num">04</div>
+          <h4>Eliminación de manchas amarillas en camisa blanca</h4>
+          <p>Removemos manchas de oxidación en prendas guardadas por años.</p>
+          <span class="tk-link">Ver en TikTok →</span>
+        </div>
+      </a>
+      <a href="https://vt.tiktok.com/ZSmDA2YwX/" class="tiktok-card" target="_blank">
+        <div class="tk-thumb">
+          <div class="tk-play">▶</div>
+          <div class="tk-icon">📱</div>
+        </div>
+        <div class="tk-info">
+          <div class="tk-num">05</div>
+          <h4>Recuperación de prendas con transteñido</h4>
+          <p>Solución para prendas que se mancharon al lavarse con otra ropa de color.</p>
+          <span class="tk-link">Ver en TikTok →</span>
+        </div>
+      </a>
+      <a href="https://vt.tiktok.com/ZSmDADUWr/" class="tiktok-card" target="_blank">
+        <div class="tk-thumb">
+          <div class="tk-play">▶</div>
+          <div class="tk-icon">📱</div>
+        </div>
+        <div class="tk-info">
+          <div class="tk-num">06</div>
+          <h4>Lavado de casaca de plumas con humedad</h4>
+          <p>Proceso delicado para recuperar casacas de plumas afectadas por la humedad.</p>
+          <span class="tk-link">Ver en TikTok →</span>
+        </div>
+      </a>
+      <a href="https://vt.tiktok.com/ZSmDAF54u/" class="tiktok-card" target="_blank">
+        <div class="tk-thumb">
+          <div class="tk-play">▶</div>
+          <div class="tk-icon">📱</div>
+        </div>
+        <div class="tk-info">
+          <div class="tk-num">07</div>
+          <h4>Cómo planchar un pantalón con raya</h4>
+          <p>Técnica precisa para lograr la raya perfecta en pantalones de vestir.</p>
+          <span class="tk-link">Ver en TikTok →</span>
+        </div>
+      </a>
+      <a href="https://vt.tiktok.com/ZSmDAhbDM/" class="tiktok-card" target="_blank">
+        <div class="tk-thumb">
+          <div class="tk-play">▶</div>
+          <div class="tk-icon">📱</div>
+        </div>
+        <div class="tk-info">
+          <div class="tk-num">08</div>
+          <h4>Cómo planchar una camisa de vestir</h4>
+          <p>Paso a paso del planchado profesional para camisas de vestir impecables.</p>
+          <span class="tk-link">Ver en TikTok →</span>
+        </div>
+      </a>
 
     </div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:8px;background:var(--navy);"></div>
-  </div>
-  <div class="hero-right" style="display:flex;flex-direction:column;justify-content:center;gap:16px;padding:60px 48px;">
-    <div class="feat"><span class="feat-icon">✅</span><div class="feat-text"><h4>Ropa lista a tiempo</h4><p>Puntualidad garantizada en cada pedido</p></div></div>
-    <div class="feat"><span class="feat-icon">🔬</span><div class="feat-text"><h4>Tratamiento técnico</h4><p>Procesos especializados por tipo de prenda</p></div></div>
-    <div class="feat"><span class="feat-icon">✨</span><div class="feat-text"><h4>Acabado impecable</h4><p>Resultados de calidad profesional</p></div></div>
-  </div>
-</section>
+  </section>
 
-<!-- NOSOTROS -->
-<section class="about" id="nosotros">
-  <div class="about-grid">
-    <div class="about-left">
-      <p class="sec-label">Quiénes somos</p>
-      <h2 class="sec-h">Más que una lavandería.<br><em>Somos especialistas.</em></h2>
-      <div class="sec-rule"></div>
-      <div class="about-since">📅 Fundados en marzo de 2019</div>
-      <div class="about-text">
-        <p>En <strong style="color:#4b5563;">Dr. Press</strong>, abrimos nuestras puertas con una visión clara: elevar el estándar del cuidado profesional de prendas.</p>
-        <p>No somos una lavandería tradicional. Somos <strong style="color:#4b5563;">especialistas en el tratamiento técnico de textiles</strong>. Con formación constante en limpieza, desmanchado y planchado profesional, hemos convertido cada prenda en una responsabilidad y cada servicio en una garantía de calidad.</p>
-        <p>En Dr. Press entendemos que <strong style="color:#4b5563;">una prenda no es solo tela</strong>. Es imagen, inversión y muchas veces emoción.</p>
-      </div>
-      <div class="pillars">
-        <div class="pillar"><span class="pillar-dot"></span> Precisión en cada proceso</div>
-        <div class="pillar"><span class="pillar-dot"></span> Transparencia con el cliente</div>
-        <div class="pillar"><span class="pillar-dot"></span> Innovación constante</div>
-        <div class="pillar"><span class="pillar-dot"></span> Respeto por cada prenda</div>
-      </div>
+  <!-- CTA -->
+  <section class="cta">
+    <p class="sec-label" style="display:block;text-align:center;">Contáctanos</p>
+    <h2 class="sec-h" style="text-align:center;">¿Lista tu ropa?<br><em>Escríbenos hoy.</em></h2>
+    <div class="sec-rule" style="margin:0 auto 32px;"></div>
+    <p class="cta-sub">Consultanos por WhatsApp para hacer tu pedido, preguntar por nuestros servicios o coordinar.
+      Respondemos rápido.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/51902208160" class="btn-wa" target="_blank">💬 WhatsApp 902 208 160</a>
+      <a href="#ubicacion" class="btn-outline">📍 Ver ubicación</a>
     </div>
-    <div class="spec-cards">
-      <div style="border-radius:10px;overflow:hidden;margin-bottom:16px;border:1px solid var(--border);height:220px;">
-        <img src="imagenes/imagen_04.jpg" alt="Interior Doctor Press" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="spec"><div class="spec-icon">🔬</div><h4>Desmanchado Técnico</h4><p>Evaluamos cada mancha según su origen, tipo de fibra y fijación del color. Procesos específicos que protegen la estructura del tejido.</p></div>
-      <div class="spec"><div class="spec-icon">♨️</div><h4>Planchado Profesional</h4><p>Equipos con vapor y sistemas de aspirado. Sin brillos, sin marcas. Acabados impecables en cada prenda.</p></div>
-      <div class="spec"><div class="spec-icon">🧵</div><h4>Prendas Delicadas</h4><p>Tratamos seda, lana, lino y otras fibras con criterio técnico, respetando colores y estructuras textiles.</p></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-logo"><img src="imagenes/imagen_03.png" alt="Doctor Press"
+        style="height:44px;width:auto;max-width:300px;object-fit:contain;filter:brightness(0) invert(1);"></div>
+    <div class="foot-center">
+      <p>© 2025 Lavandería & Tintorería Doctor Press<br>Av. General Eugenio Garzón 665, Jesús María, Lima<br>Todos los
+        derechos reservados</p>
     </div>
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section class="services" id="servicios">
-  <p class="sec-label">Lo que hacemos</p>
-  <h2 class="sec-h">Nuestros <em>Servicios</em></h2>
-  <div class="sec-rule"></div>
-  <div class="serv-grid">
-    <div class="serv-card"><div class="serv-num">01</div><img src="imagenes/imagen_05.png" style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;"><h3>Lavado & Secado</h3><p>Lavado profesional de prendas cotidianas con productos de alta calidad, cuidando colores y tejidos.</p></div>
-    <div class="serv-card"><div class="serv-num">02</div><img src="imagenes/imagen_06.png" style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;"><h3>Tintorería</h3><p>Limpieza en seco para sacos, abrigos, vestidos de gala y prendas que requieren tratamiento especializado.</p></div>
-    <div class="serv-card"><div class="serv-num">03</div><img src="imagenes/imagen_07.png" style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;"><h3>Planchado Profesional</h3><p>Acabado impecable con vapor industrial. Sin brillos, sin marcas. Precisión de especialista.</p></div>
-    <div class="serv-card"><div class="serv-num">04</div><img src="imagenes/imagen_08.png" style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;"><h3>Desmanchado Técnico</h3><p>Identificamos y tratamos cada mancha con el proceso adecuado según su origen y tipo de tejido.</p></div>
-    <div class="serv-card"><div class="serv-num">05</div><img src="imagenes/imagen_09.png" style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;"><h3>Prendas Delicadas</h3><p>Cuidado especial para seda, lana, lino y fibras que requieren tratamiento particular y experto.</p></div>
-    <div class="serv-card"><div class="serv-num">06</div><img src="imagenes/imagen_10.png" style="width:130px;height:130px;object-fit:contain;margin-bottom:14px;display:block;border:4px solid #0f2154;border-radius:10px;"><h3>Ropa de Cama & Hogar</h3><p>Lavado de sábanas, edredones, mantas y cortinas con tratamiento adecuado a cada tipo de tela.</p></div>
-  </div>
-</section>
-
-<!-- UBICACIÓN -->
-<section class="location" id="ubicacion">
-  <p class="sec-label">Encuéntranos</p>
-  <h2 class="sec-h">Ubicación y <em>Horarios</em></h2>
-  <div class="sec-rule"></div>
-  <div class="loc-grid">
-    <div class="loc-card">
-      <div class="loc-icon">📍</div>
-      <h3>Dirección</h3>
-      <p><strong>Av. General Eugenio Garzón 665</strong><br>Jesús María, Lima, Perú<br><br>De fácil acceso en transporte público o privado, en el corazón del distrito.</p>
-      <div style="margin-top:20px;border-radius:10px;overflow:hidden;border:1px solid var(--border);height:220px;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d487.8!2d-77.05652!3d-12.07582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c92b2f3b5555%3A0xabc123!2sAv.+General+Eugenio+Garz%C3%B3n+665%2C+Jes%C3%BAs+Mar%C3%ADa%2C+Lima!5e0!3m2!1ses-419!2spe!4v1700000000000!5m2!1ses-419!2spe"
-          width="100%" height="220" style="border:0;display:block;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-      <a href="https://maps.app.goo.gl/2aJBZpUVQKBz9PEu6" class="map-link" target="_blank" style="margin-top:12px;">🗺️ Abrir en Google Maps</a>
+    <div class="foot-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#ubicacion">Ubicación</a>
     </div>
-    <div class="loc-card">
-      <div class="loc-icon">🕐</div>
-      <h3>Horario de Atención</h3>
-      <div class="hours">
-        <div class="hr"><span class="hr-day">Lunes – Sábado</span><span class="hr-time">9:00 am – 12:30 pm / 2:00 pm – 8:00 pm</span></div>
-        <div class="hr"><span class="hr-day">Domingo / Feriados</span><span class="badge-cl">CERRADO</span></div>
-      </div>
-      <p style="margin-top:18px;font-size:0.78rem;color:var(--muted);">¿Necesidad urgente? Escríbenos por WhatsApp y coordinamos.</p>
-      <a href="https://wa.me/51902208160" class="map-link" style="margin-top:14px;" target="_blank">💬 902 208 160</a>
-    </div>
-  </div>
-</section>
+  </footer>
 
-<!-- TESTIMONIOS -->
-<section class="testimonials" id="testimonios">
-  <p class="sec-label">Lo que dicen</p>
-  <h2 class="sec-h">Testimonios de <em>nuestros clientes</em></h2>
-  <div class="sec-rule" style="margin-bottom:48px;"></div>
-  <div class="testi-grid">
-    <div class="testi">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-txt">"Excelente servicio, 100% recomendando para ropa delicada y para quitar manchas difíciles. Todo muy profesional, rápido y a un precio justo."</p>
-      <div class="testi-auth"><div class="testi-av">L</div><div><div class="testi-name">Luis Joaquín Zapata Elías</div><div class="testi-role">Reseña en Google ⭐</div></div></div>
-    </div>
-    <div class="testi">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-txt">"Excelente servicio y atención. Fui porque pensé que algunas prendas ya no tenían solución y me las entregaron como nuevas. ¡Súper recomendado! 🙌"</p>
-      <div class="testi-auth"><div class="testi-av">C</div><div><div class="testi-name">Cecilia Montellanos</div><div class="testi-role">Reseña en Google ⭐</div></div></div>
-    </div>
-    <div class="testi">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-txt">"Excelente servicio, quedé conforme con las prendas que dejé. Muchas gracias, ¡sigan así!"</p>
-      <div class="testi-auth"><div class="testi-av">J</div><div><div class="testi-name">Jorge Antonio Barriga Palomino</div><div class="testi-role">Reseña en Google ⭐</div></div></div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:40px;">
-    <a href="https://maps.app.goo.gl/2aJBZpUVQKBz9PEu6" target="_blank" class="btn-google-reviews">
-      <img src="https://www.google.com/favicon.ico" style="width:18px;height:18px;"> Ver todas las reseñas en Google
-    </a>
-  </div>
-</section>
-
-<!-- TIKTOK -->
-<section class="tiktok-sec" id="videos">
-  <p class="sec-label">Síguenos en TikTok</p>
-  <h2 class="sec-h">Nuestro trabajo <em>en video</em></h2>
-  <div class="sec-rule"></div>
-  <p style="color:var(--muted);font-size:0.95rem;max-width:560px;margin-bottom:48px;font-weight:300;line-height:1.7;">Mirá de cerca los procesos técnicos que hacemos a diario. Cada video muestra el cuidado y la precisión con que tratamos cada prenda.</p>
-  <div class="tiktok-grid">
-    <a href="https://vt.tiktok.com/ZSmPjAA2A/" class="tiktok-card" target="_blank">
-      <div class="tk-thumb"><div class="tk-play">▶</div><div class="tk-icon">📱</div></div>
-      <div class="tk-info">
-        <div class="tk-num">01</div>
-        <h4>¡Ropa como nueva en Dr. Press!</h4>
-        <p>Descubre nuestro proceso de cuidado profesional para tus prendas favoritas en Jesús María. #Lavanderia #DrPress</p>
-        <span class="tk-link">Ver en TikTok →</span>
-      </div>
-    </a>
-    <a href="https://vt.tiktok.com/ZSmDSwjtq/" class="tiktok-card" target="_blank">
-      <div class="tk-thumb"><div class="tk-play">▶</div><div class="tk-icon">📱</div></div>
-      <div class="tk-info">
-        <div class="tk-num">02</div>
-        <h4>Planchado de polo camisero</h4>
-        <p>Técnica profesional para lograr un acabado impecable sin marcas ni brillos.</p>
-        <span class="tk-link">Ver en TikTok →</span>
-      </div>
-    </a>
-    <a href="https://vt.tiktok.com/ZSmDSnCFJ/" class="tiktok-card" target="_blank">
-      <div class="tk-thumb"><div class="tk-play">▶</div><div class="tk-icon">📱</div></div>
-      <div class="tk-info">
-        <div class="tk-num">03</div>
-        <h4>Recuperación de saco con hongos y humedad</h4>
-        <p>Tratamiento especializado para prendas guardadas con daño por humedad.</p>
-        <span class="tk-link">Ver en TikTok →</span>
-      </div>
-    </a>
-    <a href="https://vt.tiktok.com/ZSmDArka7/" class="tiktok-card" target="_blank">
-      <div class="tk-thumb"><div class="tk-play">▶</div><div class="tk-icon">📱</div></div>
-      <div class="tk-info">
-        <div class="tk-num">04</div>
-        <h4>Eliminación de manchas amarillas en camisa blanca</h4>
-        <p>Removemos manchas de oxidación en prendas guardadas por años.</p>
-        <span class="tk-link">Ver en TikTok →</span>
-      </div>
-    </a>
-    <a href="https://vt.tiktok.com/ZSmDA2YwX/" class="tiktok-card" target="_blank">
-      <div class="tk-thumb"><div class="tk-play">▶</div><div class="tk-icon">📱</div></div>
-      <div class="tk-info">
-        <div class="tk-num">05</div>
-        <h4>Recuperación de prendas con transteñido</h4>
-        <p>Solución para prendas que se mancharon al lavarse con otra ropa de color.</p>
-        <span class="tk-link">Ver en TikTok →</span>
-      </div>
-    </a>
-    <a href="https://vt.tiktok.com/ZSmDADUWr/" class="tiktok-card" target="_blank">
-      <div class="tk-thumb"><div class="tk-play">▶</div><div class="tk-icon">📱</div></div>
-      <div class="tk-info">
-        <div class="tk-num">06</div>
-        <h4>Lavado de casaca de plumas con humedad</h4>
-        <p>Proceso delicado para recuperar casacas de plumas afectadas por la humedad.</p>
-        <span class="tk-link">Ver en TikTok →</span>
-      </div>
-    </a>
-    <a href="https://vt.tiktok.com/ZSmDAF54u/" class="tiktok-card" target="_blank">
-      <div class="tk-thumb"><div class="tk-play">▶</div><div class="tk-icon">📱</div></div>
-      <div class="tk-info">
-        <div class="tk-num">07</div>
-        <h4>Cómo planchar un pantalón con raya</h4>
-        <p>Técnica precisa para lograr la raya perfecta en pantalones de vestir.</p>
-        <span class="tk-link">Ver en TikTok →</span>
-      </div>
-    </a>
-    <a href="https://vt.tiktok.com/ZSmDAhbDM/" class="tiktok-card" target="_blank">
-      <div class="tk-thumb"><div class="tk-play">▶</div><div class="tk-icon">📱</div></div>
-      <div class="tk-info">
-        <div class="tk-num">08</div>
-        <h4>Cómo planchar una camisa de vestir</h4>
-        <p>Paso a paso del planchado profesional para camisas de vestir impecables.</p>
-        <span class="tk-link">Ver en TikTok →</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <p class="sec-label" style="display:block;text-align:center;">Contáctanos</p>
-  <h2 class="sec-h" style="text-align:center;">¿Lista tu ropa?<br><em>Escríbenos hoy.</em></h2>
-  <div class="sec-rule" style="margin:0 auto 32px;"></div>
-  <p class="cta-sub">Consultanos por WhatsApp para hacer tu pedido, preguntar por nuestros servicios o coordinar. Respondemos rápido.</p>
-  <div class="cta-btns">
-    <a href="https://wa.me/51902208160" class="btn-wa" target="_blank">💬 WhatsApp 902 208 160</a>
-    <a href="#ubicacion" class="btn-outline">📍 Ver ubicación</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-logo"><img src="imagenes/imagen_03.png" alt="Doctor Press" style="height:44px;width:auto;max-width:300px;object-fit:contain;filter:brightness(0) invert(1);"></div>
-  <div class="foot-center"><p>© 2025 Lavandería & Tintorería Doctor Press<br>Av. General Eugenio Garzón 665, Jesús María, Lima<br>Todos los derechos reservados</p></div>
-  <div class="foot-links">
-    <a href="#inicio">Inicio</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#ubicacion">Ubicación</a>
-  </div>
-</footer>
-
-<script>
-window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30);
-});
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});
-},{threshold:0.1});
-document.querySelectorAll('.spec,.serv-card,.loc-card,.testi').forEach(el=>{
-  el.style.opacity='0';el.style.transform='translateY(18px)';
-  el.style.transition='opacity 0.55s ease, transform 0.55s ease';
-  obs.observe(el);
-});
-</script>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+    });
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.spec,.serv-card,.loc-card,.testi').forEach(el => {
+      el.style.opacity = '0'; el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+      obs.observe(el);
+    });
+  </script>
 </body>
+
 </html>
