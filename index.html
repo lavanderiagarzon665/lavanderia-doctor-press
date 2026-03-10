@@ -61,7 +61,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(15,33,84,0.08);}
 .hero-left{
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;position:relative;
-  background:url('imagenes/imagen_02.png') center center / contain no-repeat, #ffffff;
+  background:#ffffff url('imagenes/imagen_02.png') center center / cover no-repeat;
 }
 .hero-overlay{position:absolute;inset:0;background:rgba(255,255,255,0.6);pointer-events:none;}
 .hero-content{position:relative;z-index:1;width:100%;display:flex;flex-direction:column;align-items:center;padding:60px 48px;}
@@ -313,7 +313,7 @@ footer{
   <div class="hero-left">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <img src="imagenes/imagen_03.png" alt="Doctor Press" style="width:100%;max-width:520px;margin-bottom:24px;mix-blend-mode:multiply;">
+      <img src="imagenes/imagen_03.png" alt="Doctor Press" style="width:100%;max-width:520px;margin-bottom:24px;">
       <p style="font-size:1.6rem;font-weight:700;color:#100d0d;letter-spacing:-0.5px;margin-bottom:10px;">
         <span style="color:#0f2154;font-size:1.2rem;">◆</span> ¡Dr. Press lo hace así! <span style="color:#0f2154;font-size:1.2rem;">◆</span>
       </p>
@@ -413,7 +413,8 @@ footer{
   <h2 class="sec-h">Testimonios de <em>nuestros clientes</em></h2>
   <div class="sec-rule" style="margin-bottom:48px;"></div>
   <!-- Widget de reseñas de Google - se actualiza automáticamente -->
-  <script defer async src='https://cdn.trustindex.io/loader.js?4a56e37658ab410d79568b4cb33'></script>
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+  <div class="elfsight-app-8090a2f5-dfe4-4362-bcc4-93a931db042b" data-elfsight-app-lazy></div>
   <div style="text-align:center;margin-top:40px;">
     <a href="https://www.google.com/maps/place/Lavander%C3%ADa+Y+Tintoreria+DoctorPress/@-12.066736,-77.0449763,766m/data=!3m1!1e3!4m18!1m9!3m8!1s0x9105c9c9a6464cab:0x75e0db607c3b3c82!2sLavander%C3%ADa+Y+Tintoreria+DoctorPress!8m2!3d-12.066736!4d-77.0449763!9m1!1b1!16s%2Fg%2F11gl36f6qh!3m7!1s0x9105c9c9a6464cab:0x75e0db607c3b3c82!8m2!3d-12.066736!4d-77.0449763!9m1!1b1!16s%2Fg%2F11gl36f6qh?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-reviews">
       <img src="https://www.google.com/favicon.ico" style="width:18px;height:18px;"> Ver todas las reseñas en Google
@@ -454,7 +455,7 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="foot-logo" style="display:inline-block;">
-      <p id="foot-title" style="color:white;font-family:'Times New Roman',serif;font-weight:700;letter-spacing:0px;line-height:1.3;white-space:nowrap;font-size:1.28rem;">LAVANDERÍA & TINTORERÍA</p>
+      <p id="foot-title" style="color:white;font-family:'Times New Roman',serif;font-weight:700;letter-spacing:0px;line-height:1.3;white-space:nowrap;font-size:1.3rem;">LAVANDERÍA & TINTORERÍA</p>
       <p id="foot-sub" style="color:rgba(255,255,255,0.5);letter-spacing:1px;margin-top:4px;white-space:nowrap;font-size:0.5rem;">DOCTOR PRESS · PROFESIONAL LAUNDERS & DRYCLEANERS</p>
     </div>
     <script>
@@ -491,4 +492,3 @@ document.querySelectorAll('.spec,.serv-card,.loc-card,.testi').forEach(el=>{
 </script>
 </body>
 </html>
-
